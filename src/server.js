@@ -4,8 +4,11 @@ const path = require('path');
 const mongoose = require('mongoose');
 
 //using docker compose
-mongoose.connect('mongodb://mongo/eprecise', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false }, (err) => {
-  if (err) throw err;
+mongoose.connect('mongodb://db/eprecise', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false }, (err) => {
+  if (err) {
+    console.log('Error on conection');
+    throw err;
+  }
   console.log("connected to mongo");
 })
 
